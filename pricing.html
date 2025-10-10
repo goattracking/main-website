@@ -9,61 +9,56 @@
     <script defer src="./script.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="container">
-        <a class="brand" href="index.html">Goat Tracking</a>
-        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-        </button>
-        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pricing.html" aria-current="page">Pricing</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <div id="site-header-root"></div>
+    <script type="module" src="./components/header.js"></script>
 
     <main>
       <section class="pricing">
         <div class="container">
-          <h1>Pricing</h1>
-          <p>Start simple, scale as your herd grows.</p>
+          <h1 class="pricing-title">Flexible Pricing For Agencies &amp; Business</h1>
 
-          <div class="plans">
-            <article class="plan" aria-labelledby="plan-starter">
-              <h2 id="plan-starter">Starter</h2>
-              <p class="price">$0</p>
+          <div class="pricing-toggle" role="group" aria-label="Pricing mode">
+            <button type="button" class="toggle-btn active" aria-pressed="true" data-mode="business">Business Pricing</button>
+            <button type="button" class="toggle-btn" aria-pressed="false" data-mode="agency">Agency Pricing</button>
+          </div>
+
+          <div class="plans" data-pricing-mode="business">
+            <article class="plan" aria-labelledby="plan-founding">
+              <h2 id="plan-founding">Founding</h2>
+              <p class="price" data-business="$400 per client/month" data-agency="$200 per client/month">$400 per client/month</p>
+              <p><a class="button primary" href="schedule.html">Get Started</a></p>
               <ul>
-                <li>Up to 5 goats</li>
-                <li>Basic location updates</li>
-                <li>Email support</li>
+                <li>Price per client</li>
+                <li>1‑click ad platform integration</li>
+                <li>1‑click website integration</li>
+                <li>Built‑in analytics</li>
               </ul>
-              <p><a class="button primary" href="#">Get Started</a></p>
             </article>
 
-            <article class="plan" aria-labelledby="plan-growth">
-              <h2 id="plan-growth">Growth</h2>
-              <p class="price">$19/mo</p>
+            <article class="plan" aria-labelledby="plan-business">
+              <h2 id="plan-business">Business</h2>
+              <p class="price" data-business="$600 per month" data-agency="$500 per month">$600 per month</p>
+              <p><a class="button primary" href="schedule.html">Get Started</a></p>
               <ul>
-                <li>Up to 50 goats</li>
-                <li>Health metrics</li>
-                <li>Priority support</li>
+                <li>1 business account</li>
+                <li>1‑click ad platform integration</li>
+                <li>1‑click website integration</li>
+                <li>Built‑in analytics</li>
               </ul>
-              <p><a class="button primary" href="#">Choose Growth</a></p>
             </article>
 
-            <article class="plan" aria-labelledby="plan-pro">
-              <h2 id="plan-pro">Pro</h2>
-              <p class="price">$49/mo</p>
+            <article class="plan" aria-labelledby="plan-enterprise">
+              <h2 id="plan-enterprise">Enterprise</h2>
+              <p class="price">Custom pricing</p>
+              <p><a class="button primary" href="schedule.html">Contact Us</a></p>
               <ul>
-                <li>Unlimited goats</li>
-                <li>Advanced insights</li>
-                <li>Phone support</li>
+                <li>Custom ad platform integration</li>
+                <li>Custom website integrations</li>
+                <li>Custom CRM/storage integrations</li>
+                <li>White Glove Support</li>
+                <li>HIPAA Compliant</li>
+                <li>GDPR Compliant</li>
               </ul>
-              <p><a class="button primary" href="#">Go Pro</a></p>
             </article>
           </div>
         </div>
@@ -72,13 +67,39 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Goat Tracking. All rights reserved.</p>
-        <nav aria-label="Footer">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pricing.html" aria-current="page">Pricing</a></li>
-          </ul>
-        </nav>
+        <div class="footer-columns">
+          <div class="footer-brand-social">
+            <a class="brand" href="index.html">Goat Tracking</a>
+            <div class="social-links">
+              <a aria-label="Instagram" href="https://www.instagram.com/goattracking/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Z"/><circle cx="17" cy="7" r="1.2" fill="currentColor"/></svg>
+              </a>
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/company/datuscloud/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7.5v.01M12 17v-4.2c0-1.55 1.25-2.8 2.8-2.8s2.2 1.25 2.2 2.8V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-group">
+              <div class="footer-title">Company</div>
+              <ul>
+                <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="cookie-policy.html">Cookies Policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-group">
+              <div class="footer-title">Contact us</div>
+              <ul class="contact-list">
+                <li><span class="icon-pill"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8l8 5l8-5"/><rect x="4" y="5" width="16" height="14" rx="2"/></svg></span><a href="mailto:support@goattracking.cloud">support@goattracking.cloud</a></li>
+                <li><span class="icon-pill"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5l-2 1a12 12 0 0 0 6 6l1-2l5 2v3a2 2 0 0 1-2 2c-8 0-15-7-15-15a2 2 0 0 1 2-2Z"/></svg></span><a href="tel:(414)240-8071">(414) 240 - 8071</a></li>
+                <li><span class="icon-pill"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></span><a href="https://maps.google.com" target="_blank" rel="noopener">360 NW 27th St, Miami, FL 33127</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="copyright">Copyright 2025 Goat Tracking LLC</p>
       </div>
     </footer>
   </body>
