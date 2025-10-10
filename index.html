@@ -3,21 +3,73 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Test Commit</title>
-    <style>
-      :root { color-scheme: light dark; }
-      body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-      }
-      main { font-size: 1.5rem; }
-    </style>
+    <title>Goat Tracking | Home</title>
+    <meta name="description" content="Lightweight goat tracking with real-time location, health monitoring, and herd insights.">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
   </head>
   <body>
-    <main>Test cofmmit successddful — you can see this text on screen.</main>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">Goat Tracking</a>
+        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Track your goats with ease</h1>
+          <p>Simple tools to monitor location, health, and herd insights — no fluff.</p>
+          <div class="actions">
+            <a class="button primary" href="pricing.html">View Pricing</a>
+            <a class="button" href="#features">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <h2>Features</h2>
+          <ul class="feature-grid" role="list">
+            <li>
+              <h3>Real-time tracking</h3>
+              <p>See location updates with minimal battery usage.</p>
+            </li>
+            <li>
+              <h3>Health monitoring</h3>
+              <p>Spot trends early with clear, readable metrics.</p>
+            </li>
+            <li>
+              <h3>Herd insights</h3>
+              <p>Understand patterns and optimize grazing routes.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Goat Tracking. All rights reserved.</p>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </body>
   
 </html>
