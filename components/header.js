@@ -16,11 +16,16 @@ function Header() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', isOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [isOpen]);
+
   return html`
     <header class="site-header react-header">
       <div class="container">
         <a class="brand" href="index.html">
-          <img src="./logo.png" alt="Goat Tracking" class="brand-logo" />
+          <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
         </a>
         <button
           class="nav-toggle"
@@ -34,15 +39,24 @@ function Header() {
           <span class="nav-toggle-bar" aria-hidden="true"></span>
         </button>
         <nav id="primary-nav" class=${"primary-nav" + (isOpen ? " open" : "") } aria-label="Primary">
-          <ul>
+          <div class="mobile-nav-top">
+            <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+            <button class="nav-close" aria-label="Close menu" onClick=${() => setIsOpen(false)}>×</button>
+          </div>
+          <ul class="menu-list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Pixel Tester</a></li>
             <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Pixel Tester</a></li>
+            <li class="mobile-only"><a href="https://app.goattracking.com/sign-in">Login</a></li>
           </ul>
+          <div class="mobile-ctas">
+            <a class="button outline" href="https://app.goattracking.com/sign-up">Try for Free</a>
+            <a class="button primary" href="https://www.goattracking.com/schedule">Book a Demo</a>
+          </div>
         </nav>
         <div class="header-actions">
           <a class="login-link" href="https://app.goattracking.com/sign-in">Login</a>
-          <a class="button primary small" href="schedule.html">DEMO</a>
+          <a class="button primary small" href="https://app.goattracking.com/sign-up">Try for Free</a>
         </div>
       </div>
     </header>

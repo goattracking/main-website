@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         void card.offsetWidth;
         card.classList.add('swap');
       });
+
+      // No inline toggling needed; CSS handles visibility based on data-pricing-mode
     });
   }
 });

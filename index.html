@@ -6,6 +6,9 @@
     <title>Goat Tracking | Home</title>
     <meta name="description" content="Lightweight goat tracking with real-time location, health monitoring, and herd insights.">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./Images/logo.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="./Images/logo.png">
+    <script defer src="./components/tracking.js"></script>
     <script defer src="./script.js"></script>
   </head>
   <body>
@@ -22,10 +25,10 @@
           </h1>
           <p class="hero-subtitle">A tracking system that isn't blocked by <a class="link-blue" href="#">Safari</a> or ad blockers.</p>
           <div class="actions centered">
-            <a class="button outline large" href="pricing.html">Get Started <span class="arrow">→</span></a>
+            <a class="button outline large" href="https://app.goattracking.com/sign-up">Get Started <span class="arrow">→</span></a>
           </div>
           <div class="hero-media">
-            <img src="https://placehold.co/1200x520/111318/FFFFFF?text=Dashboard+Placeholder" alt="Product dashboard placeholder" class="hero-image">
+            <img src="./Images/hero.jpg" alt="Product dashboard preview" class="hero-image">
           </div>
         </div>
       </section>
@@ -33,12 +36,12 @@
       <section class="symptoms">
         <div class="container">
           <p class="eyebrow accent-red center">Bad Tracking Symptoms</p>
-          <h2 class="symptoms-title">Ad Platforms Pixels &amp; CAPI Cause</h2>
+          <h2 class="symptoms-title">Ad Platforms Pixels &amp; CAPI Side Effects</h2>
 
           <div class="symptom-grid" role="list">
             <article class="symptom-card surface-card" role="listitem">
               <div class="symptom-media">
-                <img class="symptom-image" alt="Chart placeholder" src="https://placehold.co/720x420/111318/FFFFFF?text=Chart+Placeholder">
+                <img class="symptom-image" alt="Missing attribution chart" src="./Images/Attribution.jpg">
               </div>
               <h3 class="symptom-heading">Missing Attribution</h3>
               <p class="symptom-copy">Pixels blocked by Safari miss to capture UTMs for attribution.</p>
@@ -46,7 +49,7 @@
 
             <article class="symptom-card surface-card" role="listitem">
               <div class="symptom-media">
-                <img class="symptom-image" alt="Event quality placeholder" src="https://placehold.co/720x420/111318/FFFFFF?text=Event+Quality+Placeholder">
+                <img class="symptom-image" alt="Event quality score" src="./Images/CPA.jpg">
               </div>
               <h3 class="symptom-heading">High Cost Per Acquisition</h3>
               <p class="symptom-copy">CAPI fails when users switch browsers, lowering optimization event quality.</p>
@@ -54,7 +57,7 @@
 
             <article class="symptom-card surface-card" role="listitem">
               <div class="symptom-media">
-                <img class="symptom-image" alt="Table placeholder" src="https://placehold.co/720x420/111318/FFFFFF?text=Attribution+Table+Placeholder">
+                <img class="symptom-image" alt="Fragmented data table" src="./Images/UnreliableData.jpg">
               </div>
               <h3 class="symptom-heading">Unreliable Data</h3>
               <p class="symptom-copy">Pixels collect fragmented data, making you doubt decisions.</p>
@@ -72,10 +75,10 @@
             <div class="split-col text">
               <h3 class="split-heading">New Meta/Google Pixel</h3>
               <p class="split-copy">Get a new, separate pixel, built using Goattracking SST events. Test it in a new marketing campaign and see your conversions grow. No need to touch or change your own system at all.</p>
-              <a class="button primary large" href="schedule.html">Get Started <span class="arrow">→</span></a>
+              <a class="button primary large" href="https://app.goattracking.com/sign-up">Get Started <span class="arrow">→</span></a>
             </div>
             <div class="split-col media">
-              <img class="split-image" alt="Events placeholder" src="https://placehold.co/920x520/0b0b0c/FFFFFF?text=Events+Placeholder">
+              <img class="split-image" alt="New Meta/Google Pixel preview" src="./Images/New Meta.jpg">
             </div>
           </div>
         </div>
@@ -85,12 +88,12 @@
         <div class="container">
           <div class="split">
             <div class="split-col media">
-              <img class="split-image" alt="Touchpoint journey placeholder" src="https://placehold.co/920x520/0b0b0c/FFFFFF?text=Touchpoint+Journey+Placeholder">
+              <img class="split-image" alt="Multi-touch journey preview" src="./Images/Multy Touch.jpg">
             </div>
             <div class="split-col text">
               <h3 class="split-heading">Touchpoint‑Level Analytics</h3>
               <p class="split-copy">Track every step from ad click to conversion, refine your customer journey, and unlock the highest possible ROAS by discovering the most effective path.</p>
-              <a class="button primary large" href="schedule.html">Get Started <span class="arrow">→</span></a>
+              <a class="button primary large" href="https://app.goattracking.com/sign-up">Get Started <span class="arrow">→</span></a>
             </div>
           </div>
         </div>
@@ -102,10 +105,10 @@
             <div class="split-col text">
               <h3 class="split-heading">First‑Party Data</h3>
               <p class="split-copy">View your data in our dashboard, or do your own magic by exporting it to your favorite platform and building your own thing.</p>
-              <a class="button primary large" href="schedule.html">Get Started <span class="arrow">→</span></a>
+              <a class="button primary large" href="https://app.goattracking.com/sign-up">Get Started <span class="arrow">→</span></a>
             </div>
             <div class="split-col media">
-              <img class="split-image" alt="First‑party data table placeholder" src="https://placehold.co/920x520/0b0b0c/FFFFFF?text=Data+Table+Placeholder">
+              <img class="split-image" alt="Reliable first‑party data table" src="./Images/Reliable Data.jpg">
             </div>
           </div>
         </div>
@@ -119,15 +122,15 @@
 
           <div class="step-grid" role="list">
             <article class="step-card surface-card" role="listitem">
-              <img class="step-image" alt="Web platforms placeholder" src="https://placehold.co/720x420/111318/FFFFFF?text=Web+Platforms">
+              <img class="step-image" alt="Choose a web platform" src="./Images/Reliable Data.jpg">
               <h3 class="step-title">1. Choose a Web Platform</h3>
             </article>
             <article class="step-card surface-card" role="listitem">
-              <img class="step-image" alt="Pixel code placeholder" src="https://placehold.co/720x420/111318/FFFFFF?text=Paste+First-Party+Pixel">
+              <img class="step-image" alt="Paste first‑party pixel preview" src="./Images/First Party Pixel.jpg">
               <h3 class="step-title">2. Paste First‑Party Pixel</h3>
             </article>
             <article class="step-card surface-card" role="listitem">
-              <img class="step-image" alt="Ad platforms placeholder" src="https://placehold.co/720x420/111318/FFFFFF?text=Connect+Ad+Platforms">
+              <img class="step-image" alt="Connect ad platforms" src="./Images/Connect Ad Platform.jpg">
               <h3 class="step-title">3. Connect Ad Platforms</h3>
             </article>
           </div>
@@ -144,7 +147,7 @@
                 <a class="button white large" href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Test Your Pixels <span class="arrow">→</span></a>
               </div>
               <div class="cta-media">
-                <img class="cta-image" alt="Pixel testing preview" src="https://placehold.co/900x520/111318/FFFFFF?text=Preview+Placeholder">
+                <img class="cta-image" alt="Pixel testing preview" src="./Images/CTA Photo.jpg">
               </div>
             </div>
           </div>
