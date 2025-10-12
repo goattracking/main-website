@@ -21,6 +21,23 @@ function Header() {
     return () => document.body.classList.remove('menu-open');
   }, [isOpen]);
 
+  const onNavLink = (e) => {
+    try {
+      const href = e.currentTarget.getAttribute('href');
+      const target = e.currentTarget.getAttribute('target');
+      setIsOpen(false);
+      if (!href) return;
+      e.preventDefault();
+      if (target === '_blank') {
+        window.open(href, '_blank', 'noopener');
+      } else {
+        window.location.href = href;
+      }
+    } catch (_) {
+      /* no-op */
+    }
+  };
+
   return html`
     <header class="site-header react-header">
       <div class="container">
@@ -38,16 +55,16 @@ function Header() {
           <span class="nav-toggle-bar" aria-hidden="true"></span>
           <span class="nav-toggle-bar" aria-hidden="true"></span>
         </button>
-        <nav id="primary-nav" class=${"primary-nav" + (isOpen ? " open" : "") } aria-label="Primary">
+        <nav id="primary-nav" class=${"primary-nav" + (isOpen ? " open" : "") } aria-label="Primary" role="dialog" aria-modal="true">
           <div class="mobile-nav-top">
             <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
             <button class="nav-close" aria-label="Close menu" onClick=${() => setIsOpen(false)}>×</button>
           </div>
           <ul class="menu-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Pixel Tester</a></li>
-            <li class="mobile-only"><a href="https://app.goattracking.com/sign-in">Login</a></li>
+            <li><a href="index.html" onClick=${onNavLink}>Home</a></li>
+            <li><a href="pricing.html" onClick=${onNavLink}>Pricing</a></li>
+            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener" onClick=${onNavLink}>Pixel Tester</a></li>
+            <li class="mobile-only"><a href="https://app.goattracking.com/sign-in" onClick=${onNavLink}>Login</a></li>
           </ul>
           <div class="mobile-ctas">
             <a class="button outline" href="https://app.goattracking.com/sign-up">Try for Free</a>
