@@ -141,9 +141,9 @@ main { flex: 1; }
     display: none;
     width: 100vw;           /* ensure full viewport width */
   }
-  .primary-nav::before { /* center a container column matching site width for top bar and list */
-    content: "";
-    position: absolute; inset: 0; margin: 0; /* overlay background remains full */
+  .primary-nav::before { /* disable any overlay that might block clicks */
+    content: none;
+    pointer-events: none;
   }
   .primary-nav.open { display: block; }
   .primary-nav ul { flex-direction: column; padding: 0 1rem; text-align: left; gap: 0; border-top: none; width: 100%; margin: 0; }
@@ -194,6 +194,12 @@ body.menu-open { overflow: hidden; }
 .hero-landing .button.outline { background: #000000; border-color: var(--accent); color: var(--accent-contrast); transition: background .15s ease, color .15s ease, border-color .15s ease; }
 .hero-landing .button.outline:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
 .main-offset, main > section:first-of-type { padding-top: 72px; padding-bottom: 100px; }
+@media (max-width: 800px) {
+  .main-offset, main > section:first-of-type { padding-top: 52px; padding-bottom: 48px; }
+  .pricing { padding-top: 1rem; }
+  .what { padding-top: 1rem; }
+  .symptoms { padding-top: 1rem; }
+}
 .button {
   display: inline-block;
   padding: 0.6rem 1rem;
@@ -380,6 +386,7 @@ body.menu-open { overflow: hidden; }
 .site-footer .footer-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .site-footer .footer-title { color: var(--muted); font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem; }
 .site-footer .footer-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+.site-footer .footer-group ul a { color: #c5c5c7; text-decoration: none; } /* darker gray for links under titles */
 .site-footer a { color: var(--text); text-decoration: none; }
 .contact-list li { display: grid; grid-template-columns: 36px 1fr; align-items: center; gap: 0.75rem; }
 .contact-list .icon-pill {
@@ -392,5 +399,8 @@ body.menu-open { overflow: hidden; }
 .site-footer .copyright { text-align: center; color: #c5c5c7; margin: 0.75rem 0 0; }
 @media (max-width: 800px) {
   .site-footer .footer-columns { grid-template-columns: 1fr; }
+  .site-footer .footer-links { grid-template-columns: 1fr; }
+  .site-footer .footer-brand-social { text-align: center; }
+  .site-footer .social-links { justify-content: center; }
 }
 

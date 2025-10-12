@@ -1,38 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Goat Tracking | Cookies Policy</title>
-    <meta name="description" content="Cookies Policy for Goat Tracking.">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" href="./Images/logo.png" sizes="32x32" type="image/png">
-    <link rel="apple-touch-icon" href="./Images/logo.png">
-    <script defer src="./components/tracking.js"></script>
-    <script defer src="./script.js"></script>
-  </head>
-  <body>
-    <div id="site-header-root"></div>
-    <script type="module" src="./components/header.js"></script>
+// React footer component mounted via ESM imports (no bundler required)
+import React from "https://esm.sh/react@18";
+import { createRoot } from "https://esm.sh/react-dom@18/client";
+import htm from "https://esm.sh/htm@3.1.1";
 
-    <main>
-      <section class="what">
-        <div class="container">
-          <h1 class="what-title">Cookies Policy</h1>
-          <div class="surface-card" style="padding: 1rem; border-radius: 16px;">
-            <div name="termly-embed" data-id="4835e976-1b99-41d3-8897-4c0a5b3b992b"></div>
-            <script type="text/javascript">(function(d, s, id) {
-  var js, tjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "https://app.termly.io/embed-policy.min.js";
-  tjs.parentNode.insertBefore(js, tjs);
-}(document, 'script', 'termly-jssdk'));</script>
-          </div>
-        </div>
-      </section>
-    </main>
+const html = htm.bind(React.createElement);
 
+function Footer() {
+  return html`
     <footer class="site-footer">
       <div class="container">
         <div class="footer-columns">
@@ -51,7 +25,7 @@
             <div class="footer-group">
               <div class="footer-title">Company</div>
               <ul>
-                <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
                 <li><a href="cookie-policy.html">Cookies Policy</a></li>
               </ul>
@@ -70,8 +44,20 @@
         <p class="copyright">Copyright 2025 Goat Tracking LLC</p>
       </div>
     </footer>
-  </body>
-  
-</html>
+  `;
+}
+
+function mountFooter() {
+  const container = document.getElementById('site-footer-root');
+  if (!container) return;
+  const root = createRoot(container);
+  root.render(html`<${Footer} />`);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mountFooter);
+} else {
+  mountFooter();
+}
 
 
