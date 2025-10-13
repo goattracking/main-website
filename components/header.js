@@ -64,11 +64,12 @@ function Header() {
             <li><a href="index.html" onClick=${onNavLink}>Home</a></li>
             <li><a href="pricing.html" onClick=${onNavLink}>Pricing</a></li>
             <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener" onClick=${onNavLink}>Pixel Tester</a></li>
+            <li><a href="https://demo.goattracking.com" target="_blank" rel="noopener" onClick=${onNavLink}>Demo</a></li>
             <li class="mobile-only"><a href="https://app.goattracking.com/sign-in" onClick=${onNavLink}>Login</a></li>
           </ul>
           <div class="mobile-ctas">
             <a class="button outline" href="https://app.goattracking.com/sign-up">Try for Free</a>
-            <a class="button primary" href="https://www.goattracking.com/schedule">Book a Demo</a>
+            <a class="button primary" href="https://www.goattracking.com/schedule">Book a Call</a>
           </div>
         </nav>
         <div class="header-actions">
