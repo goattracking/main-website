@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Goat Tracking | Home</title>
-    <meta name="description" content="Lightweight goat tracking with real-time location, health monitoring, and herd insights.">
+    <meta name="description" content="Server-side tracking that bypasses Safari ITP, ad blockers, and browser restrictions. Fix missing attribution, reduce CPA, and get reliable first-party data in under 10 minutes. Perfect for agencies and businesses running Meta, Google, and TikTok ads.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -26,6 +26,12 @@
     <meta name="twitter:description" content="A tracking system that isn't blocked by Safari. Get server-side tracking setup in under 10 minutes. Fix missing attribution, reduce CPA, and get reliable data.">
     <meta name="twitter:image" content="https://www.goattracking.com/Images/hero.jpg">
     <meta name="twitter:image:alt" content="Goat Tracking Dashboard Preview">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.goattracking.com/">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#f53333">
     
     <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./Images/logo.png" sizes="32x32" type="image/png">
@@ -82,7 +88,7 @@
             <span class="title-strong">Server-Side Tracking</span>
             <span class="accent-red block">Under 10 Minutes</span>
           </h1>
-          <p class="hero-subtitle">A tracking system that isn't blocked by <a class="link-blue" href="#">Safari</a>.</p>
+          <p class="hero-subtitle">A tracking system that isn't blocked by <a class="link-blue" href="https://webkit.org/tracking-prevention/" target="_blank" rel="noopener">Safari</a>.</p>
           <div class="actions centered">
             <a class="button outline large" href="https://app.goattracking.com/sign-up">Get Started <span class="arrow">→</span></a>
           </div>
@@ -218,6 +224,76 @@
 
     <div id="site-footer-root"></div>
     <script type="module" src="./components/footer.js"></script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Goat Tracking",
+      "url": "https://www.goattracking.com",
+      "logo": "https://www.goattracking.com/Images/logo.png",
+      "description": "Server-side tracking solution for marketing agencies and businesses",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "360 NW 27th St",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "postalCode": "33127",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-414-240-8071",
+        "contactType": "customer service",
+        "email": "support@goattracking.com"
+      },
+      "sameAs": [
+        "https://www.instagram.com/goattracking/",
+        "https://www.linkedin.com/company/goattracking"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Goat Tracking",
+      "url": "https://www.goattracking.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.goattracking.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Goat Tracking",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "97",
+        "highPrice": "600",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "97",
+          "priceCurrency": "USD",
+          "billingDuration": "P1M"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1"
+      },
+      "description": "Server-side tracking that bypasses Safari ITP and ad blockers. Get reliable attribution data and reduce ad costs."
+    }
+    </script>
   </body>
   
 </html>
