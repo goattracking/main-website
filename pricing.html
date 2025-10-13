@@ -12,8 +12,45 @@
     <script defer src="./script.js"></script>
   </head>
   <body>
-    <div id="site-header-root"></div>
-    <script type="module" src="./components/header.js"></script>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">
+          <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          id="nav-toggle"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary" role="dialog" aria-modal="true">
+          <div class="mobile-nav-top">
+            <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+            <button class="nav-close" aria-label="Close menu" id="nav-close">×</button>
+          </div>
+          <ul class="menu-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Pixel Tester</a></li>
+            <li><a href="https://demo.goattracking.com" target="_blank" rel="noopener">Demo</a></li>
+            <li class="mobile-only"><a href="https://app.goattracking.com/sign-in">Login</a></li>
+          </ul>
+          <div class="mobile-ctas">
+            <a class="button outline" href="https://app.goattracking.com/sign-up">Try for Free</a>
+            <a class="button primary" href="https://www.goattracking.com/schedule">Book a Call</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <a class="login-link" href="https://app.goattracking.com/sign-in">Login</a>
+          <a class="button primary small" href="https://app.goattracking.com/sign-up">Try for Free</a>
+        </div>
+      </div>
+    </header>
 
     <main>
       <section class="pricing">

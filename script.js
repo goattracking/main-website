@@ -2,17 +2,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // If React header is present, it handles nav toggle
-  if (!document.querySelector('.react-header')) {
-    const navToggle = document.querySelector('.nav-toggle');
-    const primaryNav = document.getElementById('primary-nav');
+  // Header navigation toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navClose = document.getElementById('nav-close');
+  const primaryNav = document.getElementById('primary-nav');
+  
+  const closeMenu = () => {
     if (navToggle && primaryNav) {
-      navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!expanded));
-        primaryNav.classList.toggle('open');
-      });
+      navToggle.setAttribute('aria-expanded', 'false');
+      primaryNav.classList.remove('open');
+      document.body.classList.remove('menu-open');
     }
+  };
+  
+  const openMenu = () => {
+    if (navToggle && primaryNav) {
+      navToggle.setAttribute('aria-expanded', 'true');
+      primaryNav.classList.add('open');
+      document.body.classList.add('menu-open');
+    }
+  };
+  
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  }
+  
+  if (navClose) {
+    navClose.addEventListener('click', closeMenu);
+  }
+  
+  // Close menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 800) {
+      closeMenu();
+    }
+  });
+  
+  // Close menu when clicking nav links
+  if (primaryNav) {
+    primaryNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
   }
 
   // Pricing toggle
