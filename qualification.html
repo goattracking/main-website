@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goat Tracking | Schedule a Demo</title>
+    <meta name="description" content="Schedule a demo with Goat Tracking. Learn how we help marketing agencies solve attribution challenges, reduce ad costs, and optimize marketing data.">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./Images/logo.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="./Images/logo.png">
+    <script defer src="./components/tracking.js"></script>
+    <script defer src="./script.js"></script>
+    
+    <style>
+      /* Schedule page specific styles */
+      .schedule-section {
+        padding: var(--section-space) 0;
+        min-height: calc(100vh - 200px);
+      }
+      
+      .schedule-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .schedule-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 1rem;
+        color: var(--text);
+      }
+      
+      .schedule-subtitle {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: var(--muted);
+        margin: 0;
+      }
+      
+      .meetings-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+      }
+      
+      .meetings-iframe-container {
+        min-height: 600px;
+      }
+      
+      @media (max-width: 768px) {
+        .meetings-container {
+          padding: 1rem;
+        }
+        
+        .schedule-header {
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+    
+    <script>
+      function generateUUIDv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          const r = Math.random() * 16 | 0;
+          const v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+      
+      window.addEventListener('message', (event) => {
+        /* 1 – Allow only messages from the Meetings iframe(s) */
+        if (!/^https:\/\/(app|meetings(-.*)?)\.hubspot\.com$/.test(event.origin)) return;
+        /* 2 – Make sure this is the booking‑success message */
+        const meetingBookSucceeded = event.data.meetingBookSucceeded;
+        const meetingsPayload = event.data.meetingsPayload;
+        if (!meetingBookSucceeded) return;
+        /* 3 – Extract the contact object */
+        const contact = meetingsPayload.bookingResponse.postResponse.contact;
+        const schedule_date = meetingsPayload.bookingResponse.event.dateTime;
+        /* 4 – Grab the fields you care about */
+        const {
+          email,
+          firstName,
+          lastName,
+          name,
+          fullName,
+          userId
+        } = contact;
+        /* 5 – Forward the data to analytics */
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          id: generateUUIDv4(),
+          event: 'schedule',
+          user_data: {
+            email: email,
+            address: {
+              first_name: firstName,
+              last_name: lastName,
+            }
+          },
+          scheduled_date: schedule_date 
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">
+          <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          id="nav-toggle"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary" role="dialog" aria-modal="true">
+          <div class="mobile-nav-top">
+            <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+            <button class="nav-close" aria-label="Close menu" id="nav-close">×</button>
+          </div>
+          <ul class="menu-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Pixel Tester</a></li>
+            <li><a href="https://demo.goattracking.com" target="_blank" rel="noopener">Demo</a></li>
+            <li class="mobile-only"><a href="https://app.goattracking.com/sign-in">Login</a></li>
+          </ul>
+          <div class="mobile-ctas">
+            <a class="button outline" href="https://app.goattracking.com/sign-up">Try for Free</a>
+            <a class="button primary" href="https://www.goattracking.com/schedule">Book a Call</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <a class="login-link" href="https://app.goattracking.com/sign-in">Login</a>
+          <a class="button primary small" href="https://app.goattracking.com/sign-up">Try for Free</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="schedule-section">
+        <div class="container">
+          <div class="schedule-header">
+            <p class="eyebrow accent-red center">Book a Demo</p>
+            <h1 class="schedule-title">Schedule Your <span class="accent-red">Free Demo</span></h1>
+            <p class="schedule-subtitle">See how Goat Tracking can transform your marketing</p>
+          </div>
+          
+          <div class="meetings-container">
+            <!--  Start of Meetings Embed Script  -->
+            <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/victor-de-acevedo/set-me-up?embed=true"></div>
+            <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+            <!--  End of Meetings Embed Script  -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer-root"></div>
+    <script type="module" src="./components/footer.js"></script>
+  </body>
+</html>
