@@ -99,6 +99,14 @@
         });
       }
       
+      // Track page visit
+      window.addEventListener('DOMContentLoaded', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'page_schedule'
+        });
+      });
+      
       window.addEventListener('message', (event) => {
         /* 1 – Allow only messages from the Meetings iframe(s) */
         if (!/^https:\/\/(app|meetings(-.*)?)\.hubspot\.com$/.test(event.origin)) return;

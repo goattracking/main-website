@@ -38,6 +38,16 @@
     <link rel="apple-touch-icon" href="./Images/logo.png">
     <script defer src="./components/tracking.js"></script>
     <script defer src="./script.js"></script>
+    
+    <script>
+      // Track page visit
+      window.addEventListener('DOMContentLoaded', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'page_pricing'
+        });
+      });
+    </script>
   </head>
   <body>
     <header class="site-header">
