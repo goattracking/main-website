@@ -54,10 +54,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Pricing toggle
-  const plans = document.querySelector('.plans');
+  // Pricing calculator & toggle
+  const calculator = document.querySelector('.pricing-calculator');
   const toggle = document.querySelector('.pricing-toggle');
-  if (plans && toggle) {
+  const spendInput = document.getElementById('ad-spend');
+  const spendDisplay = document.getElementById('ad-spend-display');
+  const spendBubble = document.getElementById('ad-spend-bubble');
+  const sliderCaption = document.querySelector('.pricing-slider .slider-caption');
+  const feeDisplay = document.getElementById('fee-display');
+  const feeBig = document.getElementById('fee-big');
+  const feeSuffix = document.getElementById('fee-suffix');
+  const feeNote = document.getElementById('fee-note');
+  const planTitle = document.getElementById('plan-title');
+  const planLogo = document.getElementById('plan-logo');
+
+  const formatCurrency = (n) =>
+    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+
+  const recalc = () => {
+    if (!calculator || !spendInput) return;
+    const min = Number(spendInput.min || 0);
+    const max = Number(spendInput.max || 100);
+    const mode = calculator.getAttribute('data-mode') || 'business';
+    const spend = Number(spendInput.value || 0);
+    if (spendDisplay) spendDisplay.textContent = formatCurrency(spend);
+    if (spendBubble) {
+      const pct = (spend - min) / (max - min);
+      const left = pct * 100;
+      spendBubble.style.left = `${left}%`;
+      const compact = Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(spend);
+      spendBubble.textContent = compact;
+      // keep caption aligned with bubble
+      const cap = document.querySelector('.pricing-slider .slider-caption');
+      if (cap) cap.style.left = `${left}%`;
+    }
+    const fee = Math.max(97, Math.round(spend * 0.01)); // 1% with $97 minimum
+    const suffix = mode === 'agency' ? ' per client/month' : ' per month';
+    if (feeDisplay) feeDisplay.textContent = `${formatCurrency(fee)}${suffix}`;
+    if (feeBig) feeBig.textContent = `${formatCurrency(fee)}`;
+    if (feeSuffix) feeSuffix.textContent = mode === 'agency' ? '/client/month' : '/monthly';
+    if (feeNote) feeNote.style.display = fee === 97 ? '' : 'none';
+    if (planTitle) planTitle.textContent = mode === 'agency' ? 'Agency Pricing' : 'Business Pricing';
+    if (planLogo) {
+      if (mode === 'agency') {
+        planLogo.onerror = () => { planLogo.src = './Images/logo_smiths.png'; };
+        planLogo.src = './Images/Server-Side Tracking (4).png';
+        planLogo.alt = 'Server-Side Tracking';
+      } else {
+        planLogo.onerror = null;
+        planLogo.src = './Images/logo_business.png';
+        planLogo.alt = 'Goat Tracking';
+      }
+    }
+
+    // small pulse animation on value change
+    feeDisplay.classList.remove('swap');
+    void feeDisplay.offsetWidth;
+    feeDisplay.classList.add('swap');
+
+    // slider progress fill and moving caption
+    const pctFill = Math.max(0, Math.min(100, ((spend - min) / (max - min)) * 100));
+    spendInput.style.background = `linear-gradient(to right, var(--accent) 0%, var(--accent) ${pctFill}%, #1b1c21 ${pctFill}%, #1b1c21 100%)`;
+    // also ensure alignment in case bubble block above didn't run
+    if (sliderCaption) sliderCaption.style.left = `${pctFill}%`;
+  };
+
+  if (spendInput) {
+    spendInput.addEventListener('input', recalc);
+    spendInput.addEventListener('change', recalc);
+    spendInput.addEventListener('mousemove', (e) => { if (e.buttons === 1) recalc(); });
+    spendInput.addEventListener('pointermove', (e) => { if (e.buttons === 1) recalc(); });
+  }
+  if (calculator && toggle) {
     toggle.addEventListener('click', (e) => {
       const btn = e.target.closest('.toggle-btn');
       if (!btn) return;
@@ -66,31 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
         b.classList.toggle('active', isActive);
         b.setAttribute('aria-pressed', String(isActive));
       });
-      plans.setAttribute('data-pricing-mode', btn.dataset.mode);
-
-      // Update visible prices
-      const isAgency = btn.dataset.mode === 'agency';
-      document.querySelectorAll('.price[data-business]')
-        .forEach(p => {
-          const text = isAgency ? p.getAttribute('data-agency') : p.getAttribute('data-business');
-          if (text) {
-            p.textContent = text;
-            p.classList.remove('swap');
-            void p.offsetWidth; // reflow to restart animation
-            p.classList.add('swap');
-          }
-        });
-
-      // subtle pulse on each card
-      document.querySelectorAll('.plan').forEach(card => {
-        card.classList.remove('swap');
-        void card.offsetWidth;
-        card.classList.add('swap');
-      });
-
-      // No inline toggling needed; CSS handles visibility based on data-pricing-mode
+      calculator.setAttribute('data-mode', btn.dataset.mode || 'business');
+      recalc();
     });
   }
+
+  // initial calculation
+  recalc();
 });
 
 
