@@ -196,7 +196,7 @@ body.menu-open { overflow: hidden; }
 .main-offset, main > section:first-of-type { padding-top: 72px; padding-bottom: 100px; }
 @media (max-width: 800px) {
   .main-offset, main > section:first-of-type { padding-top: 52px; padding-bottom: 48px; }
-  .pricing { padding-top: 1rem; }
+  .pricing { padding-top: 0.75rem; }
   .what { padding-top: 1rem; }
   .symptoms { padding-top: 1rem; }
 }
@@ -283,7 +283,7 @@ body.menu-open { overflow: hidden; }
 }
 
 /* Pricing */
-.pricing { padding: 2.75rem 0 3.25rem; }
+.pricing { padding: 1.75rem 0 3.25rem; }
 .pricing-title {
   font-size: clamp(1.9rem, 3.8vw, 3.25rem);
   text-align: center;
