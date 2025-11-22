@@ -363,6 +363,12 @@ body.menu-open { overflow: hidden; }
   white-space: nowrap;
   pointer-events: none;
 }
+/* Mobile alternatives for slider */
+.mobile-spend-controls { display: none; }
+.mobile-spend-controls .stepper { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 0.5rem; margin-top: 0.6rem; }
+.mobile-spend-controls .stepper-btn { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); color: var(--accent-contrast); border: none; font-size: 1.2rem; cursor: pointer; }
+.mobile-spend-controls #spend-input-mobile { width: 100%; padding: 0.55rem 0.6rem; border-radius: 10px; border: 1px solid var(--border); background: #141416; color: var(--text); }
+.mobile-spend-controls .suffix { color: var(--muted); font-size: 0.9rem; }
 .pricing-toggle {
   display: flex;
   align-items: center;
@@ -565,6 +571,23 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 900px) {
   .pricing-calculator .calc-body { grid-template-columns: 1fr; }
   .pricing-calculator .calc-right { border-left: 0; padding-left: 0; }
+}
+/* Mobile spacing polish */
+@media (max-width: 900px) {
+  .pricing { padding: 2rem 0 2.5rem; }
+  .pricing-title { margin-block: 0.25rem 1rem; }
+  .pricing-slider { margin: 0 auto 0.75rem; }
+  .pricing-slider .slider-caption { top: 14px; font-size: 0.85rem; }
+  .pricing-slider .calc-scale { display: none; }             /* hide 0 / 500k on mobile */
+  .pricing-slider .slider-wrap { display: none; }            /* hide desktop slider on mobile */
+  .mobile-spend-controls { display: block; }                 /* show mobile controls */
+  .pricing-calculator { padding: 1rem 1rem 1.1rem; border-radius: 18px; }
+  .plan-header { margin: 0 0 0.5rem; padding-bottom: 0.4rem; }
+  .price-hero { margin: 0.8rem 0 0.4rem; }
+  .micro-benefits { margin-top: 0.6rem; }
+  .pricing-calculator .calc-left .calc-cta { margin-top: 0.9rem; }
+  .pricing-calculator .calc-right { margin-top: 1rem; }
+  .feature-list { gap: 0.6rem; }
 }
 /* Included features list under calculator */
 .included-features { margin-top: 1.5rem; }

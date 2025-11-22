@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const feeNote = document.getElementById('fee-note');
   const planTitle = document.getElementById('plan-title');
   const planLogo = document.getElementById('plan-logo');
+  const spendInputMobile = document.getElementById('spend-input-mobile');
+  const stepperDec = document.getElementById('spend-decrease');
+  const stepperInc = document.getElementById('spend-increase');
 
   const formatCurrency = (n) =>
     new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
@@ -97,6 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     if (spendDisplay) spendDisplay.textContent = formatCurrency(spend);
+    if (spendInputMobile && document.activeElement !== spendInputMobile) {
+      spendInputMobile.value = formatCurrency(spend);
+    }
     if (spendBubble) {
       const pct = (spend - min) / (max - min);
       const left = pct * 100;
@@ -161,6 +167,31 @@ document.addEventListener('DOMContentLoaded', () => {
     spendInput.addEventListener('change', recalc);
     spendInput.addEventListener('mousemove', (e) => { if (e.buttons === 1) recalc(); });
     spendInput.addEventListener('pointermove', (e) => { if (e.buttons === 1) recalc(); });
+  }
+  // Mobile stepper controls
+  const adjustSpend = (delta) => {
+    if (!spendInput) return;
+    let current = Number(spendInput.value || 0);
+    // derive step consistent with recalc tiers
+    let step;
+    if (current >= 300000) step = 100000;
+    else if (current >= 100000) step = 50000;
+    else step = 10000;
+    current = Math.max(0, Math.min(500000, current + delta * step));
+    spendInput.value = String(current);
+    recalc();
+  };
+  if (stepperDec) stepperDec.addEventListener('click', () => adjustSpend(-1));
+  if (stepperInc) stepperInc.addEventListener('click', () => adjustSpend(1));
+  if (spendInputMobile) {
+    spendInputMobile.addEventListener('change', () => {
+      let val = parseInt(spendInputMobile.value.replace(/[^0-9]/g, ''), 10);
+      if (Number.isNaN(val)) val = 0;
+      val = Math.max(0, Math.min(500000, val));
+      spendInput.value = String(val);
+      spendInputMobile.value = formatCurrency(val);
+      recalc();
+    });
   }
   if (calculator && toggle) {
     toggle.addEventListener('click', (e) => {

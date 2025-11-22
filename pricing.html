@@ -117,6 +117,14 @@
               <span>$0</span>
               <span>$500k+</span>
             </div>
+            <div class="mobile-spend-controls" aria-label="Monthly ad spend options">
+              <div class="stepper" role="group" aria-label="Adjust monthly ad spend">
+                <button type="button" class="stepper-btn" id="spend-decrease" aria-label="Decrease spend">−</button>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="spend-input-mobile" aria-label="Monthly ad spend input" value="10000">
+                <span class="suffix">USD/mo</span>
+                <button type="button" class="stepper-btn" id="spend-increase" aria-label="Increase spend">+</button>
+              </div>
+            </div>
           </div>
 
           <div class="pricing-calculator surface-card" data-mode="business" aria-labelledby="calc-title">
