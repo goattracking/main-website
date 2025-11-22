@@ -184,6 +184,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (stepperDec) stepperDec.addEventListener('click', () => adjustSpend(-1));
   if (stepperInc) stepperInc.addEventListener('click', () => adjustSpend(1));
   if (spendInputMobile) {
+    // Live update as user types, without reformatting text to avoid cursor jumps
+    spendInputMobile.addEventListener('input', () => {
+      let val = parseInt(spendInputMobile.value.replace(/[^0-9]/g, ''), 10);
+      if (Number.isNaN(val)) val = 0;
+      val = Math.max(0, Math.min(500000, val));
+      spendInput.value = String(val);
+      recalc();
+    });
     spendInputMobile.addEventListener('change', () => {
       let val = parseInt(spendInputMobile.value.replace(/[^0-9]/g, ''), 10);
       if (Number.isNaN(val)) val = 0;
