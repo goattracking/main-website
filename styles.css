@@ -409,14 +409,14 @@ body.menu-open { overflow: hidden; }
   margin: 0.25rem 0 0;
 }
 .calc-title { margin: 0; font-size: 1rem; color: var(--muted); }
-.price-hero { margin: 0.9rem 0 0.25rem; }
+.price-hero { margin: 1.1rem 0 0.5rem; }
 .big-price { display: flex; align-items: baseline; gap: 0.4rem; }
 #fee-big { font-size: clamp(2.4rem, 6vw, 3.2rem); font-weight: 900; letter-spacing: -0.5px; }
 .big-price .suffix { color: var(--muted); font-weight: 700; }
 .plan-header { display: flex; align-items: center; gap: 0.75rem; margin: 0.25rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
 .plan-logo { height: 56px; width: auto; display: block; }
 .plan-title { font-size: 1.05rem; font-weight: 800; }
-.micro-benefits { color: var(--muted); margin: 0.5rem 0 0; font-size: 0.95rem; }
+.micro-benefits { color: var(--muted); margin: 0.75rem 0 0; font-size: 0.95rem; }
 .pricing-calculator .calc-control {
   display: grid;
   gap: 0.5rem;
@@ -525,15 +525,31 @@ body.menu-open { overflow: hidden; }
   font-size: 0.9rem;
 }
 .pricing-calculator .calc-cta { margin-top: 0.75rem; }
-.pricing-calculator .calc-cta .button { width: 100%; text-align: center; border-radius: 999px; padding: 0.9rem 1.2rem; box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+.pricing-calculator .calc-cta .button { width: 100%; text-align: center; border-radius: 999px; padding: 0.9rem 1.2rem; box-shadow: 0 10px 26px rgba(0,0,0,.25); transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease, border-color .15s ease; }
+@keyframes ctaPop { 0% { transform: scale(.98); } 60% { transform: scale(1.04); } 100% { transform: scale(1); } }
+.pricing-calculator .calc-cta .button.contact {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.22), 0 12px 30px rgba(0,0,0,.35);
+  animation: ctaPop 220ms ease;
+}
+.pricing-calculator .calc-cta .button.contact:hover {
+  filter: brightness(1.05);
+}
 
 /* Two-column layout inside calculator */
 .pricing-calculator .calc-body {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 1.25rem;
-  align-items: start;
+  align-items: stretch;
 }
+.pricing-calculator .calc-left { display: flex; flex-direction: column; }
+.pricing-calculator .calc-left .calc-cta { margin-top: auto; }
 .pricing-calculator .calc-right { align-self: start; }
 .pricing-calculator .calc-right .included-features {
   margin-top: 0;

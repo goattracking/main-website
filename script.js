@@ -76,7 +76,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const min = Number(spendInput.min || 0);
     const max = Number(spendInput.max || 100);
     const mode = calculator.getAttribute('data-mode') || 'business';
-    const spend = Number(spendInput.value || 0);
+    // Dynamic step: larger jumps after 100k and 300k
+    let spend = Number(spendInput.value || 0);
+    let desiredStep;
+    if (spend >= 300000) {
+      desiredStep = 100000;
+    } else if (spend >= 100000) {
+      desiredStep = 50000;
+    } else {
+      desiredStep = 10000;
+    }
+    const currentStep = Number(spendInput.step || 0);
+    if (currentStep !== desiredStep) {
+      spendInput.step = String(desiredStep);
+      // snap to nearest step to avoid in-between values
+      const snapped = Math.round(spend / desiredStep) * desiredStep;
+      if (snapped !== spend) {
+        spend = snapped;
+        spendInput.value = String(snapped);
+      }
+    }
     if (spendDisplay) spendDisplay.textContent = formatCurrency(spend);
     if (spendBubble) {
       const pct = (spend - min) / (max - min);
@@ -90,9 +109,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const fee = Math.max(97, Math.round(spend * 0.01)); // 1% with $97 minimum
     const suffix = mode === 'agency' ? ' per client/month' : ' per month';
+    const isContact = spend >= 100000;
+    // Keep price always visible
     if (feeDisplay) feeDisplay.textContent = `${formatCurrency(fee)}${suffix}`;
     if (feeBig) feeBig.textContent = `${formatCurrency(fee)}`;
     if (feeSuffix) feeSuffix.textContent = mode === 'agency' ? '/client/month' : '/monthly';
+
+    // Switch CTA when over threshold
+    const ctaBtn = document.querySelector('.pricing-calculator .calc-cta .button');
+    if (ctaBtn) {
+      if (isContact) {
+        ctaBtn.textContent = 'Contact Sales';
+        ctaBtn.href = 'https://www.goattracking.com/schedule';
+        ctaBtn.classList.add('contact');
+      } else {
+        ctaBtn.textContent = 'Try for Free';
+        ctaBtn.href = 'https://app.goattracking.com/sign-up';
+        ctaBtn.classList.remove('contact');
+      }
+    }
     if (feeNote) feeNote.style.display = fee === 97 ? '' : 'none';
     if (planTitle) planTitle.textContent = mode === 'agency' ? 'Agency Pricing' : 'Business Pricing';
     if (planLogo) {
@@ -107,10 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // small pulse animation on value change
-    feeDisplay.classList.remove('swap');
-    void feeDisplay.offsetWidth;
-    feeDisplay.classList.add('swap');
+    // small pulse animation on value change (only if element exists)
+    if (feeDisplay) {
+      feeDisplay.classList.remove('swap');
+      void feeDisplay.offsetWidth;
+      feeDisplay.classList.add('swap');
+    }
 
     // slider progress fill and moving caption
     const pctFill = Math.max(0, Math.min(100, ((spend - min) / (max - min)) * 100));
