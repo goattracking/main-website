@@ -93,63 +93,70 @@
     <main>
       <section class="pricing">
         <div class="container">
-          <h1 class="pricing-title">Flexible Pricing For Agencies &amp; Business</h1>
+          <h1 class="pricing-title">Just 1% of Your Ad Spend.</h1>
 
           <div class="pricing-toggle" role="group" aria-label="Pricing mode">
             <button type="button" class="toggle-btn active" aria-pressed="true" data-mode="business">Business Pricing</button>
             <button type="button" class="toggle-btn" aria-pressed="false" data-mode="agency">Agency Pricing</button>
           </div>
 
-          <div class="plans" data-pricing-mode="business">
-            <article class="plan" aria-labelledby="plan-foundational">
-              <h2 id="plan-foundational">Foundational</h2>
-              <p class="price" data-business="$97 per month" data-agency="$97 per client/month">$97 per month</p>
-              <p><a class="button primary" href="https://app.goattracking.com/sign-up">Try for Free</a></p>
-              <ul>
-                <li>Up to 10k ad spend</li>
-                <li data-hide-when="business">Price per client</li>
-                <li>1‑click ad platform integration</li>
-                <li>1‑click website integration</li>
-                <li>1‑click extension integration</li>
-                <li>Built‑in analytics</li>
-                <li>GTM container import</li>
-                <li>Custom events</li>
-              </ul>
-            </article>
+          <div class="pricing-slider">
+            <div class="slider-wrap">
+              <input
+                type="range"
+                id="ad-spend"
+                min="0"
+                max="500000"
+                step="10000"
+                value="10000"
+                aria-label="Monthly ad spend slider">
+              <div class="slider-bubble" id="ad-spend-bubble">10k</div>
+              <div class="slider-caption">Monthly Ad Spend</div>
+            </div>
+            <div class="calc-scale">
+              <span>$0</span>
+              <span>$500k+</span>
+            </div>
+            <div class="mobile-spend-controls" aria-label="Monthly ad spend options">
+              <div class="stepper" role="group" aria-label="Adjust monthly ad spend">
+                <button type="button" class="stepper-btn" id="spend-decrease" aria-label="Decrease spend">−</button>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="spend-input-mobile" aria-label="Monthly ad spend input" value="10000" readonly aria-readonly="true" tabindex="-1">
+                <span class="suffix">monthly</span>
+                <button type="button" class="stepper-btn" id="spend-increase" aria-label="Increase spend">+</button>
+              </div>
+            </div>
+          </div>
 
-            <article class="plan" aria-labelledby="plan-premium">
-              <h2 id="plan-premium">Premium</h2>
-              <p class="price" data-business="$600 per month" data-agency="$300 per client/month">$600 per month</p>
-              <p><a class="button primary" href="https://app.goattracking.com/sign-up">Try for Free</a></p>
-              <ul>
-                <li>Unlimited ad spend</li>
-                <li data-show-when="agency">Price per client</li>
-                <li>1‑click ad platform integration</li>
-                <li>1‑click website integration</li>
-                <li>1‑click extension integration</li>
-                <li>Built‑in analytics</li>
-                <li>GTM container import</li>
-                <li>Custom events</li>
-              </ul>
-            </article>
-
-            <article class="plan" aria-labelledby="plan-enterprise">
-              <h2 id="plan-enterprise">Enterprise</h2>
-              <p class="price">Custom pricing</p>
-              <p><a class="button primary" href="schedule.html">Contact Us</a></p>
-              <ul>
-                <li>Custom ad platform integration</li>
-                <li>Custom website integrations</li>
-                <li>Custom storage integrations</li>
-                <li>Custom CRM integrations</li>
-                <li>Custom database integration</li>
-                <li>Custom visualization tool</li>
-                <li>Offline conversion integration</li>
-                <li>HIPAA Compliant</li>
-                <li>GDPR Compliant</li>
-                <li>White Glove Support</li>
-              </ul>
-            </article>
+          <div class="pricing-calculator surface-card" data-mode="business" aria-labelledby="calc-title">
+            <div class="calc-body">
+              <div class="calc-left">
+                <div class="plan-header">
+                  <img class="plan-logo" id="plan-logo" src="./Images/logo_business.png" alt="Goat Tracking" />
+                  <div class="plan-title" id="plan-title">Business Pricing</div>
+                </div>
+                <div class="price-hero">
+                  <div class="big-price"><span id="fee-big">$100</span><span class="suffix" id="fee-suffix">/monthly</span></div>
+                </div>
+                <p class="micro-benefits">No contracts · Cancel anytime · Instant onboarding</p>
+                <div class="calc-cta">
+                  <a class="button primary" href="https://app.goattracking.com/sign-up">Try for Free</a>
+                </div>
+              </div>
+              <div class="calc-right">
+                <div class="included-features">
+                  <h2 class="features-title">Included features</h2>
+                  <ul class="feature-list">
+                    <li>1‑click ad platform integration</li>
+                    <li>1‑click website integration</li>
+                    <li>1‑click extension integration</li>
+                    <li>Built‑in analytics</li>
+                    <li>Multi‑touch attribution</li>
+                    <li>GTM container import</li>
+                    <li>Custom events</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
