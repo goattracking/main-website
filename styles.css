@@ -98,7 +98,7 @@ main { flex: 1; }
 .nav-toggle[aria-expanded="true"]::before { transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"]::after { transform: rotate(-45deg); }
 
-.primary-nav { justify-self: center; }
+.primary-nav { justify-self: center; margin-left: 7rem; }
 .primary-nav ul {
   list-style: none;
   display: flex;
