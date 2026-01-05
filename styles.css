@@ -98,7 +98,7 @@ main { flex: 1; }
 .nav-toggle[aria-expanded="true"]::before { transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"]::after { transform: rotate(-45deg); }
 
-.primary-nav { justify-self: center; }
+.primary-nav { justify-self: center; margin-left: 7rem; }
 .primary-nav ul {
   list-style: none;
   display: flex;
@@ -140,6 +140,7 @@ main { flex: 1; }
     padding: 72px 0 4.5rem; /* align with navbar height */
     display: none;
     width: 100vw;           /* ensure full viewport width */
+    margin-left: 0;         /* reset desktop margin */
   }
   .primary-nav::before { /* disable any overlay that might block clicks */
     content: none;
