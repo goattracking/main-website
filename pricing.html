@@ -3,29 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Goat Tracking | Pricing</title>
-    <meta name="description" content="Transparent server-side tracking pricing starting at $97/month. Choose business or agency pricing with unlimited ad spend, Meta & Google integrations, first-party data analytics, and GTM support. Enterprise HIPAA & GDPR compliant plans available.">
+    <title>Goat Tracking | Contact Us</title>
+    <meta name="description" content="Get in touch with Goat Tracking. Book a free demo, try server-side tracking for free, or reach us by email and phone. We're here to help with your tracking setup.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.goattracking.com/pricing.html">
-    <meta property="og:title" content="Goat Tracking | Flexible Pricing For Agencies & Business">
-    <meta property="og:description" content="Transparent pricing starting at $97/month. Choose between business and agency pricing. Get unlimited ad spend tracking, 1-click integrations, and built-in analytics.">
+    <meta property="og:title" content="Goat Tracking | Contact Us">
+    <meta property="og:description" content="Get in touch with Goat Tracking. Book a free demo or try server-side tracking for free. We're here to help with your tracking setup.">
     <meta property="og:image" content="https://www.goattracking.com/Images/hero.jpg">
     <meta property="og:image:secure_url" content="https://www.goattracking.com/Images/hero.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Goat Tracking Pricing Plans">
+    <meta property="og:image:alt" content="Goat Tracking - Contact Us">
     <meta property="og:site_name" content="Goat Tracking">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.goattracking.com/pricing.html">
-    <meta name="twitter:title" content="Goat Tracking | Flexible Pricing For Agencies & Business">
-    <meta name="twitter:description" content="Transparent pricing starting at $97/month. Choose between business and agency pricing. Get unlimited ad spend tracking, 1-click integrations, and built-in analytics.">
+    <meta name="twitter:title" content="Goat Tracking | Contact Us">
+    <meta name="twitter:description" content="Get in touch with Goat Tracking. Book a free demo or try server-side tracking for free. We're here to help with your tracking setup.">
     <meta name="twitter:image" content="https://www.goattracking.com/Images/hero.jpg">
-    <meta name="twitter:image:alt" content="Goat Tracking Pricing Plans">
+    <meta name="twitter:image:alt" content="Goat Tracking - Contact Us">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.goattracking.com/pricing.html">
@@ -39,12 +39,132 @@
     <script defer src="./components/tracking.js"></script>
     <script defer src="./script.js"></script>
     
+    <style>
+      .contact-section {
+        padding: var(--section-space) 0;
+        min-height: calc(100vh - 200px);
+      }
+      
+      .contact-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .contact-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 1rem;
+        color: var(--text);
+      }
+      
+      .contact-subtitle {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: var(--muted);
+        margin: 0;
+      }
+      
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        align-items: stretch;
+      }
+      
+      .contact-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .contact-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+      }
+      
+      .contact-card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.125rem;
+      }
+      
+      .contact-card p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      
+      .contact-card .contact-card-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .contact-card .contact-card-list li {
+        margin-bottom: 0.75rem;
+      }
+      
+      .contact-card .contact-card-list li:last-child {
+        margin-bottom: 0;
+      }
+      
+      .contact-card .contact-card-list a {
+        color: var(--text);
+        text-decoration: none;
+      }
+      
+      .contact-card .contact-card-list a:hover {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+      
+      .meetings-container {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      
+      .meetings-container h3 {
+        flex-shrink: 0;
+      }
+      
+      .meetings-iframe-container {
+        flex: 1;
+        min-height: 320px;
+      }
+      
+      @media (max-width: 900px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .meetings-container {
+          padding: 1rem;
+        }
+        
+        .contact-header {
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+    
     <script>
       // Track page visit
       window.addEventListener('DOMContentLoaded', function() {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: 'page_pricing'
+          event: 'page_contact'
         });
       });
     </script>
@@ -90,71 +210,39 @@
     </header>
 
     <main>
-      <section class="pricing">
+      <section class="contact-section">
         <div class="container">
-          <h1 class="pricing-title">Just 1% of Your Ad Spend.</h1>
-
-          <div class="pricing-toggle" role="group" aria-label="Pricing mode">
-            <button type="button" class="toggle-btn active" aria-pressed="true" data-mode="business">Business Pricing</button>
-            <button type="button" class="toggle-btn" aria-pressed="false" data-mode="agency">Agency Pricing</button>
+          <div class="contact-header">
+            <p class="eyebrow accent-red center">Get in Touch</p>
+            <h1 class="contact-title">Contact <span class="accent-red">Us</span></h1>
+            <p class="contact-subtitle">We'd love to hear from you. Book a call, start free, or reach out directly.</p>
           </div>
-
-          <div class="pricing-slider">
-            <div class="slider-wrap">
-              <input
-                type="range"
-                id="ad-spend"
-                min="0"
-                max="500000"
-                step="10000"
-                value="10000"
-                aria-label="Monthly ad spend slider">
-              <div class="slider-bubble" id="ad-spend-bubble">10k</div>
-              <div class="slider-caption">Monthly Ad Spend</div>
-            </div>
-            <div class="calc-scale">
-              <span>$0</span>
-              <span>$500k+</span>
-            </div>
-            <div class="mobile-spend-controls" aria-label="Monthly ad spend options">
-              <div class="stepper" role="group" aria-label="Adjust monthly ad spend">
-                <button type="button" class="stepper-btn" id="spend-decrease" aria-label="Decrease spend">−</button>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" id="spend-input-mobile" aria-label="Monthly ad spend input" value="10000" readonly aria-readonly="true" tabindex="-1">
-                <span class="suffix">monthly</span>
-                <button type="button" class="stepper-btn" id="spend-increase" aria-label="Increase spend">+</button>
+          
+          <div class="contact-grid">
+            <div class="contact-cards">
+              <div class="contact-card">
+                <h3>Book a Call</h3>
+                <p>Schedule a free demo and see how Goat Tracking can transform your marketing. Get a personalized walkthrough.</p>
+                <a class="button primary" href="https://www.goattracking.com/schedule">Schedule Now</a>
+              </div>
+              <div class="contact-card">
+                <h3>Try for Free</h3>
+                <p>Get started in minutes. No credit card required. Set up server-side tracking and see the difference.</p>
+                <a class="button outline" href="https://app.goattracking.com/sign-up">Get Started</a>
+              </div>
+              <div class="contact-card">
+                <h3>Reach Us Directly</h3>
+                <p>Have questions? We're here to help.</p>
+                <ul class="contact-list contact-card-list">
+                  <li><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8l8 5l8-5"/><rect x="4" y="5" width="16" height="14" rx="2"/></svg></span><a href="mailto:support@goattracking.com">support@goattracking.com</a></li>
+                  <li><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5l-2 1a12 12 0 0 0 6 6l1-2l5 2v3a2 2 0 0 1-2 2c-8 0-15-7-15-15a2 2 0 0 1 2-2Z"/></svg></span><a href="tel:(414)240-8071">(414) 240 - 8071</a></li>
+                </ul>
               </div>
             </div>
-          </div>
-
-          <div class="pricing-calculator surface-card" data-mode="business" aria-labelledby="calc-title">
-            <div class="calc-body">
-              <div class="calc-left">
-                <div class="plan-header">
-                  <img class="plan-logo" id="plan-logo" src="./Images/logo_business.png" alt="Goat Tracking" />
-                  <div class="plan-title" id="plan-title">Business Pricing</div>
-                </div>
-                <div class="price-hero">
-                  <div class="big-price"><span id="fee-big">$100</span><span class="suffix" id="fee-suffix">/monthly</span></div>
-                </div>
-                <p class="micro-benefits">No contracts · Cancel anytime · Instant onboarding</p>
-                <div class="calc-cta">
-                  <a class="button primary" href="https://app.goattracking.com/sign-up">Try for Free</a>
-                </div>
-              </div>
-              <div class="calc-right">
-                <div class="included-features">
-                  <h2 class="features-title">Included features</h2>
-                  <ul class="feature-list">
-                    <li>1‑click ad platform integration</li>
-                    <li>1‑click website integration</li>
-                    <li>1‑click extension integration</li>
-                    <li>Built‑in analytics</li>
-                    <li>Multi‑touch attribution</li>
-                    <li>GTM container import</li>
-                    <li>Custom events</li>
-                  </ul>
-                </div>
-              </div>
+            <div class="meetings-container">
+              <h3 style="margin: 0 0 1rem;">Book a Demo</h3>
+              <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/victor-de-acevedo/set-me-up?embed=true"></div>
+              <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
             </div>
           </div>
         </div>
@@ -169,52 +257,24 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Pricing",
+      "name": "Contact Us",
       "url": "https://www.goattracking.com/pricing.html",
-      "description": "Flexible pricing plans for businesses and agencies"
+      "description": "Get in touch with Goat Tracking"
     }
     </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Goat Tracking - Foundational Plan",
-      "description": "Entry-level server-side tracking for up to $10k ad spend",
-      "brand": {
-        "@type": "Brand",
-        "name": "Goat Tracking"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "97",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2026-12-31",
-        "url": "https://www.goattracking.com/pricing.html"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Goat Tracking - Premium Plan",
-      "description": "Advanced server-side tracking with unlimited ad spend",
-      "brand": {
-        "@type": "Brand",
-        "name": "Goat Tracking"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "600",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2026-12-31",
-        "url": "https://www.goattracking.com/pricing.html"
+      "@type": "ContactPage",
+      "name": "Goat Tracking - Contact",
+      "url": "https://www.goattracking.com/pricing.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Goat Tracking",
+        "email": "support@goattracking.com",
+        "telephone": "(414) 240-8071"
       }
     }
     </script>
   </body>
-  
 </html>
-

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goat Tracking | Pricing</title>
+    <meta name="description" content="Transparent server-side tracking pricing starting at $97/month. Choose business or agency pricing with unlimited ad spend, Meta & Google integrations, first-party data analytics, and GTM support. Enterprise HIPAA & GDPR compliant plans available.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.goattracking.com/pricing.html">
+    <meta property="og:title" content="Goat Tracking | Flexible Pricing For Agencies & Business">
+    <meta property="og:description" content="Transparent pricing starting at $97/month. Choose between business and agency pricing. Get unlimited ad spend tracking, 1-click integrations, and built-in analytics.">
+    <meta property="og:image" content="https://www.goattracking.com/Images/hero.jpg">
+    <meta property="og:image:secure_url" content="https://www.goattracking.com/Images/hero.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Goat Tracking Pricing Plans">
+    <meta property="og:site_name" content="Goat Tracking">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.goattracking.com/pricing.html">
+    <meta name="twitter:title" content="Goat Tracking | Flexible Pricing For Agencies & Business">
+    <meta name="twitter:description" content="Transparent pricing starting at $97/month. Choose between business and agency pricing. Get unlimited ad spend tracking, 1-click integrations, and built-in analytics.">
+    <meta name="twitter:image" content="https://www.goattracking.com/Images/hero.jpg">
+    <meta name="twitter:image:alt" content="Goat Tracking Pricing Plans">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.goattracking.com/pricing.html">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#f53333">
+    
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./Images/favicon.ico">
+    <link rel="apple-touch-icon" href="./Images/logo.png">
+    <script defer src="./components/tracking.js"></script>
+    <script defer src="./script.js"></script>
+    
+    <script>
+      // Track page visit
+      window.addEventListener('DOMContentLoaded', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'page_pricing'
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">
+          <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          id="nav-toggle"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary" role="dialog" aria-modal="true">
+          <div class="mobile-nav-top">
+            <img src="./Images/logo.png" alt="Goat Tracking" class="brand-logo" />
+            <button class="nav-close" aria-label="Close menu" id="nav-close">×</button>
+          </div>
+          <ul class="menu-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="https://testyourpixel.goattracking.com" target="_blank" rel="noopener">Pixel Tester</a></li>
+            <li><a href="https://demo.goattracking.com" target="_blank" rel="noopener">Demo</a></li>
+          </ul>
+          <div class="mobile-ctas">
+            <a class="button outline" href="https://app.goattracking.com/sign-up">Try for Free</a>
+            <a class="button primary" href="https://www.goattracking.com/schedule">Book a Call</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <a class="button outline small" href="https://www.goattracking.com/schedule">Contact Sales</a>
+          <a class="button primary small" href="https://app.goattracking.com/sign-up">Try for Free</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="pricing">
+        <div class="container">
+          <h1 class="pricing-title">Just 1% of Your Ad Spend.</h1>
+
+          <div class="pricing-toggle" role="group" aria-label="Pricing mode">
+            <button type="button" class="toggle-btn active" aria-pressed="true" data-mode="business">Business Pricing</button>
+            <button type="button" class="toggle-btn" aria-pressed="false" data-mode="agency">Agency Pricing</button>
+          </div>
+
+          <div class="pricing-slider">
+            <div class="slider-wrap">
+              <input
+                type="range"
+                id="ad-spend"
+                min="0"
+                max="500000"
+                step="10000"
+                value="10000"
+                aria-label="Monthly ad spend slider">
+              <div class="slider-bubble" id="ad-spend-bubble">10k</div>
+              <div class="slider-caption">Monthly Ad Spend</div>
+            </div>
+            <div class="calc-scale">
+              <span>$0</span>
+              <span>$500k+</span>
+            </div>
+            <div class="mobile-spend-controls" aria-label="Monthly ad spend options">
+              <div class="stepper" role="group" aria-label="Adjust monthly ad spend">
+                <button type="button" class="stepper-btn" id="spend-decrease" aria-label="Decrease spend">−</button>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="spend-input-mobile" aria-label="Monthly ad spend input" value="10000" readonly aria-readonly="true" tabindex="-1">
+                <span class="suffix">monthly</span>
+                <button type="button" class="stepper-btn" id="spend-increase" aria-label="Increase spend">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-calculator surface-card" data-mode="business" aria-labelledby="calc-title">
+            <div class="calc-body">
+              <div class="calc-left">
+                <div class="plan-header">
+                  <img class="plan-logo" id="plan-logo" src="./Images/logo_business.png" alt="Goat Tracking" />
+                  <div class="plan-title" id="plan-title">Business Pricing</div>
+                </div>
+                <div class="price-hero">
+                  <div class="big-price"><span id="fee-big">$100</span><span class="suffix" id="fee-suffix">/monthly</span></div>
+                </div>
+                <p class="micro-benefits">No contracts · Cancel anytime · Instant onboarding</p>
+                <div class="calc-cta">
+                  <a class="button primary" href="https://app.goattracking.com/sign-up">Try for Free</a>
+                </div>
+              </div>
+              <div class="calc-right">
+                <div class="included-features">
+                  <h2 class="features-title">Included features</h2>
+                  <ul class="feature-list">
+                    <li>1‑click ad platform integration</li>
+                    <li>1‑click website integration</li>
+                    <li>1‑click extension integration</li>
+                    <li>Built‑in analytics</li>
+                    <li>Multi‑touch attribution</li>
+                    <li>GTM container import</li>
+                    <li>Custom events</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer-root"></div>
+    <script type="module" src="./components/footer.js"></script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Pricing",
+      "url": "https://www.goattracking.com/pricing.html",
+      "description": "Flexible pricing plans for businesses and agencies"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Goat Tracking - Foundational Plan",
+      "description": "Entry-level server-side tracking for up to $10k ad spend",
+      "brand": {
+        "@type": "Brand",
+        "name": "Goat Tracking"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "97",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31",
+        "url": "https://www.goattracking.com/pricing.html"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Goat Tracking - Premium Plan",
+      "description": "Advanced server-side tracking with unlimited ad spend",
+      "brand": {
+        "@type": "Brand",
+        "name": "Goat Tracking"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "600",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31",
+        "url": "https://www.goattracking.com/pricing.html"
+      }
+    }
+    </script>
+  </body>
+  
+</html>
